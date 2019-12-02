@@ -138,7 +138,7 @@ If you were persisting data in a form, you can add the `data-print` attribute to
 ## URL Parameters
 Any page loaded with a URL parameter or parameters will be stored as key/value pairs in `sessionStorage`. For example, when you visit a page as `http://site.com?foo=bar`, your sessionStorage will be updated with `foo: "bar"` to use later.
 
-## Filtering Content on the page
+## Filtering Content on pages
 Filtering content will allow you to handle multiple states on a single page. For example, let's say you have a page that would show some content that is conditional upon some stored data. You can use the data attribute `data-filter-[STORED_ID]="[STORED_ID_VALUE]"` to keep it on the page. If the `STORED_ID_VALUE` attribute does not match what is in your session data, the element will be removed from the DOM.
 
 If filtering content, **use underscores as separators, note hyphens**
