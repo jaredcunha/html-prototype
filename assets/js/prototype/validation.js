@@ -3,7 +3,7 @@ $(document).ready(function(){
   var $inputs = $('input:not([type="hidden"]), input:not([type="submit"]), select'),
       $form = $('form'),
       $submit = $('button[type="submit"]'),
-      errorClass = "contains-error",
+      errorClass = "usa-input--error",
       labelErrorClass = "usa-label--error",
       errorID = "error",
       $errorplaceholder = $('.error-placeholder'),
@@ -19,9 +19,9 @@ $(document).ready(function(){
       $container = $el.closest('.usa-fieldset');
 
     if (($el.attr("type") != "radio") && ($el.attr("type") != "checkbox")) {
-      var errorMessage = '<span aria-atomic="true" class="usa-error-message" role="alert">'+errorMessage+'</span>';
+      var errorMessage = '<span class="usa-error-message" role="alert" id="'+ errorFieldName + '_error">'+errorMessage+'</span>';
       $el.add($label).add($hint).wrapAll(errorContainer);
-      $el.addClass(errorClass);
+      $el.addClass(errorClass).attr("aria-describedby", errorFieldName + "_error");
       $label.addClass(labelErrorClass);
       $el.next().remove('.form-feedback');
       if ($el.parents().find($errorplaceholder).length) {
@@ -33,12 +33,14 @@ $(document).ready(function(){
     }
     else if ($el.attr("type") == "checkbox") {
       $el.before('<span aria-atomic="true" class="usa-error-message" role="alert">'+errorMessage+'</span>');
+      $container.attr('id',  errorID).addClass(errorClass);
     }
     else {
       $el.parent().before('<span aria-atomic="true" class="usa-error-message" role="alert">'+errorMessage+'</span>');
+      $container.attr('id',  errorID).addClass(errorClass);
     }
     $el.focus();
-    $container.attr('id',  errorID).addClass(errorClass);
+
     location.href = "#" + errorID;
   };
 
