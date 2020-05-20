@@ -1,0 +1,53 @@
+---
+layout: default
+---
+
+<h1>Forms</h1>
+
+
+<form class="usa-form usa-form--large">
+  <h2>Part 1: Provide your address</h2>
+
+  {% include form-fields/_text-field.html
+    id="street_1"
+    label_text="Street"
+  %}
+
+  {% include form-fields/_text-field.html
+    id="street_2"
+    label_text="Apt., Suite, PO BOX, etc."
+    optional="true"
+  %}
+
+  <div class="grid-row grid-gap">
+    <div class="mobile-lg:grid-col-8">
+      {% include form-fields/_text-field.html
+        id="city"
+        label_text="City"
+      %}
+    </div>
+    <div class="mobile-lg:grid-col-4">
+      {% include form-fields/_state-select.html
+        id="state"
+      %}
+    </div>
+  </div>
+
+  {% include form-fields/_text-field.html
+    id="zip"
+    label_text="Zip"
+    input_classes="usa-input--medium"
+  %}
+
+  <div class="border-top border-base-light margin-top-6 padding-top-1">
+    <ul class="usa-button-group">
+      <li class="usa-button-group__item">
+        <button class="usa-button">Continue →</button>
+      </li>
+      <li class="usa-button-group__item">
+        <a href="#" class="usa-button usa-button--outline">Save and exit</a>
+      </li>
+    </ul>
+  </div>
+
+</form>
